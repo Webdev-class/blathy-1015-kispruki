@@ -15,3 +15,6 @@ const removeCustomer = require('./f2/removeCustomer')
 const modifyCustomer = require('./f3/modifyCustomer')
 
 //You can work here...
+let t1 = {id:11,name:"Kiss Béla",age:18, address:{city:"Budapest",street:"Arany János út",house:11}, newsLetter: false}
+
+console.log(addCustomer(t1.name, t1.age, t1.address, t1.newsLetter));

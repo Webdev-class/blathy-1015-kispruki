@@ -10,15 +10,23 @@ let customers = [
     {id:9, name:"Ashlie Wozencraft", age:23, address:{city:"Espinosa", street:"78 Pepper Wood Terrace", house:11}, newsLetter: false},
     {id:10, name:"Jonas Tungate", age:83, address:{city:"Padangulaktanding", street:"224 Manley Drive", house:49}, newsLetter: true}
 ]
-function isAddress(address) {    
-    //TODO
+
+function isAddress(address) {
+    return typeof(address) === "object" && Object.hasOwn(address,city) && Object.hasOwn(address,street) && Object.hasOwn(address, house);
 }
 
-function isCustomer(name, age, address, newsLetter) {    
-    //TODO
+function isCustomer(name, age, address, newsLetter) {
+    return typeof(name) == "string" && typeof(age) == "number" && isAddress(address) && typeof(newsLetter) =="boolean";
 }
 function modifyCustomer (customer){
-    //TODO
+    
+    if (isCustomer(customer)){
+    customers.splice(customers.indexOf(customers.filter(c=> c.id === customer.id)),1,customer)
+    return customers;
+}
+    else {
+        return false
+    }
 }
 
 module.exports = modifyCustomer;

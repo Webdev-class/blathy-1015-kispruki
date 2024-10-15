@@ -12,6 +12,9 @@ let customers = [
 ]
 
 function removeCustomer(id) {
-    //TODO
+    let i = customers.indexOf(customers.filter(c=> c.id === id));
+    if(i===-1){return false}
+    customers.splice(i,1)
+    return customers
 }
 module.exports = removeCustomer;

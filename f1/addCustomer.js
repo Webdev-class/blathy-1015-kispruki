@@ -12,14 +12,20 @@ let customers = [
 ]
 
 function isAddress(address) {
-    //TODO
+    return typeof(address) == "object" && Object.hasOwn(address,"city") && Object.hasOwn(address,"street") && Object.hasOwn(address, "house");
 }
 
 function isCustomer(name, age, address, newsLetter) {
-    //TODO
+    return typeof(name) == "string" && typeof(age) == "number" && isAddress(address) && typeof(newsLetter) =="boolean";
+    
 }
 
 function addCustomer(name, age, address, newsLetter) {
-    //TODO
+    let obj = {id: customers[customers.length-1].id +1, name: name, age:parseInt(age), address:address, newsLetter:newsLetter?true:false}
+    console.log(obj);
+    if (isCustomer(obj.name, obj.age, obj.address, obj.newsLetter))
+        {customers.push(obj); return customers;}
+    else{return false;}
+
 }
 module.exports = addCustomer;
